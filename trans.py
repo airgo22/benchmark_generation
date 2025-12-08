@@ -70,13 +70,24 @@ def get_runtimes(runtime):
         "args" : args 
         }
     
-    # TODO : 增加CPU 内存资源
+    # TODO :  内存资源
+    cpu_lowbound = int(runtime.get("coreCount" , 0))
+    cpu_upperbound = cpu_lowbound + 2 
+    cpu_req = {
+        "name" : "CPU" ,
+        "lowbound" : cpu_lowbound ,
+        "upperbound" : cpu_upperbound 
+        }
+    
 
     task = tasks[-1] 
     groups = task["spec"]["groups"] 
     for idx , group in enumerate(groups) :
         if group["name"] == runtime["id"] :
             groups[idx]["actions"][0]["runtimes"].append(rt)
+            resource_requirements = groups[idx].get("resource_requirements" , [])
+            resource_requirements.append(cpu_req)
+            groups[idx]["resource_requirements"] = resource_requirements
 
     tasks[-1]["spec"]["groups"] = groups
 

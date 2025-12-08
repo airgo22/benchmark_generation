@@ -9,7 +9,7 @@ from my_recipe import MyRecipe
 
 recipe = MyRecipe.from_num_tasks(
     muban = 'blast' ,
-    num_tasks = 50 , 
+    num_tasks = 30 , 
     runtime_factor = 1.1 , 
     input_file_size_factor = 1.5 ,
     output_file_size_factor = 0.8 ,
@@ -20,7 +20,7 @@ generator = WorkflowGenerator(recipe)
 count = 1 
 for i in range(count) : 
     workflow = generator.build_workflow()
-    benchmark = WorkflowBenchmark(recipe=MyRecipe, num_tasks=50)
+    benchmark = WorkflowBenchmark(recipe=MyRecipe, num_tasks=30)
     # workflow.write_json(Path(f'./tmp/seismology-workflow{i}.json'))
     path = benchmark.create_benchmark_from_synthetic_workflow(Path("./tmp/"), workflow, cpu_work=100, percent_cpu=0.6)
 
