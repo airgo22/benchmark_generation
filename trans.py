@@ -75,8 +75,8 @@ def get_runtimes(runtime):
     cpu_upperbound = cpu_lowbound + 2 
     cpu_req = {
         "name" : "CPU" ,
-        "lowbound" : cpu_lowbound ,
-        "upperbound" : cpu_upperbound 
+        "lowbound" : str(cpu_lowbound) ,
+        "upperbound" : str(cpu_upperbound) 
         }
     
 
