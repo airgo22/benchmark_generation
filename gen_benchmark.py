@@ -8,7 +8,7 @@ from my_recipe import MyRecipe
 
 
 recipe = MyRecipe.from_num_tasks(
-    muban = 'blast' ,
+    muban = 'genome' ,
     num_tasks = 30 , 
     runtime_factor = 1.1 , 
     input_file_size_factor = 1.5 ,

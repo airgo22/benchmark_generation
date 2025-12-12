@@ -39,6 +39,8 @@ def get_tasks_dag(benchmark_tasks):
 
 def get_runtimes(runtime):
     arguments = runtime["command"]["arguments"] 
+    dataSpec = []
+    output = [] 
     args = []
     for item in arguments:
         parts = item.split(" ", 1)
@@ -54,6 +56,20 @@ def get_runtimes(runtime):
                 # 先把 "{'a': 1, 'b': 2}" / "['x', 'y']" 解析成Python对象
                 py_obj = ast.literal_eval(value)
                 json_str = json.dumps(py_obj)
+                if flag == "--input-files":
+                    download_files = json.loads(json_str)
+                    for fp in download_files:   
+                        dataSpec.append({
+                            "name": fp,
+                            "fileFormat": "file",
+                        })
+                if flag == "--input-files":
+                    upload_files = json.loads(json_str)
+                    for uf in upload_files:   
+                        output.append({
+                            "name": uf,
+                            "type": "file",
+                        })
                 args.extend([flag, json_str])
             except Exception:
                 # 解析失败
@@ -67,7 +83,9 @@ def get_runtimes(runtime):
         "name" : "R1" ,
         "type" : "command" , 
         "command" : [runtime["command"]["program"]] , 
-        "args" : args 
+        "args" : args ,
+        "data" : dataSpec,
+        "output" : output
         }
     
     # TODO :  内存资源
@@ -75,8 +93,8 @@ def get_runtimes(runtime):
     cpu_upperbound = cpu_lowbound + 2 
     cpu_req = {
         "name" : "CPU" ,
-        "lowbound" : cpu_lowbound ,
-        "upperbound" : cpu_upperbound 
+        "lowbound" : str(cpu_lowbound) ,
+        "upperbound" : str(cpu_upperbound) 
         }
     
 
