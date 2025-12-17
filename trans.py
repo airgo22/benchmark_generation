@@ -42,6 +42,15 @@ def get_runtimes(runtime):
     dataSpec = []
     output = [] 
     args = []
+    conditions = {
+        "formulas": [{
+            "condition_type":"DataDependency",
+            "left_value" : {
+                "type" : "file" 
+            },
+            "right_value" : {}
+        }]
+    }
     for item in arguments:
         parts = item.split(" ", 1)
         if len(parts) == 1:
@@ -63,7 +72,7 @@ def get_runtimes(runtime):
                             "name": fp,
                             "fileFormat": "file",
                         })
-                if flag == "--input-files":
+                if flag == "--output-files":
                     upload_files = json.loads(json_str)
                     for uf in upload_files:   
                         output.append({
@@ -77,16 +86,26 @@ def get_runtimes(runtime):
         else:
             # 直接拆开
             args.extend([flag, value])
+    if dataSpec != [] :
+        rt = {
+            "name" : "R1" ,
+            "type" : "command" , 
+            "command" : [runtime["command"]["program"]] , 
+            "args" : args ,
+            "data" : dataSpec,
+            "output" : output,
+            "conditions" : conditions
+            }
+    else :
+         rt = {
+            "name" : "R1" ,
+            "type" : "command" , 
+            "command" : [runtime["command"]["program"]] , 
+            "args" : args ,
+            "data" : dataSpec,
+            "output" : output
+            }
 
-
-    rt = {
-        "name" : "R1" ,
-        "type" : "command" , 
-        "command" : [runtime["command"]["program"]] , 
-        "args" : args ,
-        "data" : dataSpec,
-        "output" : output
-        }
     
     # TODO :  内存资源
     cpu_lowbound = int(runtime.get("coreCount" , 0))
