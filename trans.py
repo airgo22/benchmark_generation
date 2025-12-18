@@ -93,7 +93,7 @@ def get_runtimes(runtime):
             "command" : [runtime["command"]["program"]] , 
             "args" : args ,
             "data" : dataSpec,
-            "output" : output,
+            "outputs" : output,
             "conditions" : conditions
             }
     else :
@@ -103,7 +103,7 @@ def get_runtimes(runtime):
             "command" : [runtime["command"]["program"]] , 
             "args" : args ,
             "data" : dataSpec,
-            "output" : output
+            "outputs" : output
             }
 
     
