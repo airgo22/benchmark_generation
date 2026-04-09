@@ -86,6 +86,20 @@ def get_runtimes(runtime):
         else:
             # 直接拆开
             args.extend([flag, value])
+        
+            # 如果缺少 CPU 参数，则对特定任务类型自动补齐
+
+    # TODO : 这里可以根据不同的任务类型，补齐不同的资源参数，目前先针对 bowtie2 做了补齐    
+    # 如果缺少 CPU 参数，则自动补齐
+    arg_flags = set(args[::2])  # 取出所有 flag，例如 --name, --output-files ...
+
+    if "--percent-cpu" not in arg_flags:
+        args.extend(["--percent-cpu", "0.1"])
+
+    if "--cpu-work" not in arg_flags:
+        args.extend(["--cpu-work", "3"])
+
+
     if dataSpec != [] :
         rt = {
             "name" : "R1" ,
