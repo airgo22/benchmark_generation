@@ -4,7 +4,7 @@ from pathlib import Path
 from wfcommons import BlastRecipe
 from wfcommons.wfbench import WorkflowBenchmark , DaskTranslator
 from wfcommons import WorkflowGenerator
-from my_recipe import MyRecipe
+from format.my_recipe import MyRecipe
 
 # muban : blast -43\ bwa -104\ cycles -67\ epigenomics -41\ genome -52 
         # montage -58\ rnaseq -o63\ seismology -101\ soykb -96\ srasearch -22-104
