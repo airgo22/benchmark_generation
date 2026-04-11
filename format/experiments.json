@@ -1,0 +1,204 @@
+{
+  "experiments": [
+    {
+      "name": "w1",
+      "shape": {
+        "muban": "srasearch",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w2_1",
+      "shape": {
+        "muban": "soykb",
+        "num_tasks": 50,
+        "runtime_factor": 50,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 52000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w3",
+      "shape": {
+        "muban": "seismology",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w4",
+      "shape": {
+        "muban": "rnaseq",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w5_1",
+      "shape": {
+        "muban": "montage",
+        "num_tasks": 50,
+        "runtime_factor": 50,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 2000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w6",
+      "shape": {
+        "muban": "genome",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w7",
+      "shape": {
+        "muban": "epigenomics",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w8",
+      "shape": {
+        "muban": "bwa",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w9_1",
+      "shape": {
+        "muban": "blast",
+        "num_tasks": 50,
+        "runtime_factor": 50,
+        "input_file_size_factor": 0.05,
+        "output_file_size_factor": 0.08,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 2000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    },
+    {
+      "name": "w10",
+      "shape": {
+        "muban": "cycles",
+        "num_tasks": 50,
+        "runtime_factor": 100,
+        "input_file_size_factor": 0.005,
+        "output_file_size_factor": 0.008,
+        "num_layers": 7,
+        "sigma": 2.0,
+        "edge_prob": 0.4
+      },
+      "load": {
+        "cpu_work": 5000,
+        "percent_cpu": 0.7
+      },
+      "repeat": 1,
+      "convert_to_test": true,
+      "translate_to_dask": false
+    }
+  ]
+}
